@@ -15,7 +15,7 @@ public class ElectronicsMenu extends AbstractPageObject {
         super(driver);
     }
 
-    public ComputersPage selectComputersPage(){
+    public ComputersPage selectComputersLink(){
         computers.click();
         return new ComputersPage(getDriver());
     }
