@@ -31,7 +31,7 @@ public class DiskFilteringAndSortingTest {
     }
 
     @Test
-    public void test() throws InterruptedException {
+    public void testIfProductsOnExternalAndPortableDiscsPageAreSortedWithExpectedFiltering()  {
         //when
       externalAndPortableDiscsPage.getExternalAndPortableDiscsMenu()
               .setupfilteringDiscCapacity("200","300")
