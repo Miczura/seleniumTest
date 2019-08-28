@@ -17,7 +17,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     private WebElement toCapacityFilter;
     @FindBy(xpath = "//select[@data-value='m']")
     private WebElement select;
-    @FindBy(xpath = "//section[descendant::h2[text()='Lista promowanych ofert']]//span[@class='fee8042']")
+    @FindBy(xpath = "//section[descendant::h2[text()='Lista ofert']]//span[@class='fee8042']")
     private WebElement listOfProducts;
     @FindBy(xpath = "//li[@title='do 300 GB']")
     private WebElement filterVelue;
@@ -45,13 +45,14 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     }
 
     public List<Double> getListOfPrices() {
+        getDriver().navigate().refresh();
         int count = 5;
         while (true) {
             System.out.println(count);
             count--;
             try {
                 List<WebElement> listOfWebElements = listOfProducts.
-                        findElements(By.xpath("//section[descendant::h2[text()='Lista promowanych ofert']]//span[@class='fee8042']"));
+                        findElements(By.xpath("//section[descendant::h2[text()='Lista ofert']]//span[@class='fee8042']"));
                 List<String> listOfStringsPrises = listOfWebElements.
                         stream().
                         map(webElement -> webElement.getText().replaceAll("zł", "").replaceAll(",", ".").trim()).
