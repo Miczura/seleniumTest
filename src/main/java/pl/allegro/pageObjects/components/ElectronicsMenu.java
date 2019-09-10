@@ -8,7 +8,7 @@ import pl.allegro.pageObjects.pages.ComputersPage;
 import pl.allegro.pageObjects.utils.WaitWrapper;
 
 public class ElectronicsMenu extends AbstractPageObject {
-    @FindBy(xpath = "//div[@data-box-name='Nagłówek kategorii Komputery i tablety']/descendant::a[2]")
+    @FindBy(xpath = "//div[@data-box-name='Podkategorie w Komputery i tablety']/descendant::a[@title='Komputery stacjonarne']")
     private WebElement computers;
 
     public ElectronicsMenu(WebDriver driver) {
@@ -16,6 +16,7 @@ public class ElectronicsMenu extends AbstractPageObject {
     }
 
     public ComputersPage selectComputersLink(){
+        WaitWrapper.waitForElement(getDriver(),10,computers);
         computers.click();
         return new ComputersPage(getDriver());
     }

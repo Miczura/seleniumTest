@@ -19,7 +19,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     private WebElement select;
     @FindBy(xpath = "//section[descendant::h2[text()='Lista ofert']]//span[@class='fee8042']")
     private WebElement listOfProducts;
-    @FindBy(xpath = "//li[@title='do 300 GB']")
+    @FindBy(xpath = "//div[@data-box-name='chipsAboveFilters']/descendant::div[text()='do 300 GB']")
     private WebElement filterVelue;
 
     public ExternalAndPortableDiscsMenu(WebDriver driver) {

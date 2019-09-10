@@ -8,7 +8,7 @@ import pl.allegro.pageObjects.pages.AbstractPageObject;
 import pl.allegro.pageObjects.pages.PortableDiscsAndMemoriesPage;
 
 public class ComputersMenu extends AbstractPageObject {
-    @FindBy( xpath = "//a[text()='Dyski i pamięci przenośne']")
+    @FindBy( xpath = "//div[@data-box-name='categories container']/descendant::a[text()='Dyski i pamięci przenośne']")
     private WebElement portableDiscsAndMemoriesLink;
 
     public ComputersMenu(WebDriver driver) {
