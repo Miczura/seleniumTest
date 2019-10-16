@@ -27,6 +27,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     }
 
     public ExternalAndPortableDiscsMenu setupfilteringDiscCapacity(String minCapacity,String maxCapacity){
+        WaitWrapper.waitForElement(getDriver(),5,fromCapacityFilter);
         fromCapacityFilter.clear();
         fromCapacityFilter.sendKeys(minCapacity);
         toCapacityFilter.clear();
