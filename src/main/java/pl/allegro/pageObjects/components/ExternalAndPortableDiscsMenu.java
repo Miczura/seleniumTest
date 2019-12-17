@@ -17,7 +17,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     private WebElement toCapacityFilter;
     @FindBy(xpath = "//select[@data-value='m']")
     private WebElement select;
-    @FindBy(xpath = "//section[descendant::h2[text()='Lista ofert']]//span[@class='fee8042']")
+    @FindBy(xpath = "//section[descendant::h2[text()='Oferty']]//span[@class='fee8042']")
     private WebElement listOfProducts;
     @FindBy(xpath = "//div[@data-box-name='chipsAboveFilters']/descendant::div[text()='do 300 GB']")
     private WebElement filterVelue;
