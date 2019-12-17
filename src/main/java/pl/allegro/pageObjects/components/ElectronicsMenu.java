@@ -7,9 +7,12 @@ import pl.allegro.pageObjects.pages.ComputersPage;
 import pl.allegro.pageObjects.utils.WaitWrapper;
 
 public class ElectronicsMenu extends AbstractPageObject {
+    //constatly changing page....
     //@FindBy(xpath = "//div[@data-box-name='category - Elektronika']/descendant::a[text()='Komputery']")
     //@FindBy(xpath = "//a[@title='Komputery stacjonarne']")
-    @FindBy(xpath="//div[@data-box-name='Komputery i tablety stara']/descendant::a[@title='Komputery stacjonarne'][2]")
+    //@FindBy(xpath="//div[@data-box-name='Komputery i tablety stara']/descendant::a[@title='Komputery stacjonarne'][2]")
+    @FindBy(xpath="//div[@data-box-name='category - Elektronika']/descendant::a[@title='Komputery']")
+
     private WebElement computers;
 
     public ElectronicsMenu(WebDriver driver) {
