@@ -8,6 +8,8 @@ import pl.allegro.pageObjects.pages.AbstractPageObject;
 import pl.allegro.pageObjects.pages.PortableDiscsAndMemoriesPage;
 import pl.allegro.pageObjects.utils.WaitWrapper;
 
+import java.util.ArrayList;
+
 public class ComputersMenu extends AbstractPageObject {
     @FindBy( xpath = "//div[@data-box-name='categories container']/descendant::a[text()='Dyski i pamięci przenośne']")
     private WebElement portableDiscsAndMemoriesLink;
@@ -17,8 +19,17 @@ public class ComputersMenu extends AbstractPageObject {
     }
 
     public PortableDiscsAndMemoriesPage selectPortableDiscAndMemoriesPage(){
+        changeTab();
         WaitWrapper.waitForElement(getDriver(),10,portableDiscsAndMemoriesLink);
         portableDiscsAndMemoriesLink.click();
+
+
         return new PortableDiscsAndMemoriesPage(getDriver());
+    }
+    private void changeTab(){
+        ArrayList<String> tabs2 = new ArrayList<String>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(tabs2.get(0));
+        getDriver().close();
+        getDriver().switchTo().window(tabs2.get(1));
     }
 }
