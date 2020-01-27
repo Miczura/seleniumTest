@@ -14,7 +14,9 @@ public class ElectronicsMenu extends AbstractPageObject {
     @FindBy(xpath="//div[@data-box-name='category - Elektronika']/descendant::a[@title='Komputery']")
 
     private WebElement computers;
+    @FindBy(xpath="//div[@data-box-name='catgory - Elektronika']/descendant::a[@title='Komputery']")
 
+    private WebElement fail;
     public ElectronicsMenu(WebDriver driver) {
         super(driver);
     }
@@ -22,6 +24,12 @@ public class ElectronicsMenu extends AbstractPageObject {
     public ComputersPage selectComputersLink(){
         WaitWrapper.waitForElement(getDriver(),10,computers);
         computers.click();
+        return new ComputersPage(getDriver());
+    }
+
+    public ComputersPage selectComputersLinkAndFail(){
+        WaitWrapper.waitForElement(getDriver(),10,computers);
+        fail.click();
         return new ComputersPage(getDriver());
     }
 }
