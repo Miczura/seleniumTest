@@ -1,5 +1,6 @@
 package pl.allegro.pageObjects.components;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ public class MainCategoriesMenu extends AbstractPageObject {
         super(driver);
     }
 
+    @Step("Navigate to electronics page")
     public ElectronicsPage selectElectronicsLink(){
         electronics.click();
         return new ElectronicsPage(getDriver());

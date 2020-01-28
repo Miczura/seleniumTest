@@ -1,5 +1,6 @@
 package pl.allegro.pageObjects.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pl.allegro.pageObjects.components.MainCategoriesMenu;
 import pl.allegro.pageObjects.utils.CookieWrapper;
@@ -12,7 +13,7 @@ public class MainPage extends AbstractPageObject {
         super(driver);
         this.mainCategoriesMenu=new MainCategoriesMenu(driver);
     }
-
+    @Step("Navigate to allegro.pl")
     public MainPage navigateToMainPage(){
         getDriver().manage().window().maximize();
         getDriver().get(Url.allegroAddress);

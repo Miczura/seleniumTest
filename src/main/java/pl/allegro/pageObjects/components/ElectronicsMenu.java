@@ -1,5 +1,6 @@
 package pl.allegro.pageObjects.components;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import pl.allegro.pageObjects.pages.AbstractPageObject;
@@ -20,13 +21,13 @@ public class ElectronicsMenu extends AbstractPageObject {
     public ElectronicsMenu(WebDriver driver) {
         super(driver);
     }
-
+    @Step("Navigate to computers page")
     public ComputersPage selectComputersLink(){
         WaitWrapper.waitForElement(getDriver(),10,computers);
         computers.click();
         return new ComputersPage(getDriver());
     }
-
+    @Step("Try to navigate to computers page and fail on electronics page")
     public ComputersPage selectComputersLinkAndFail(){
         WaitWrapper.waitForElement(getDriver(),10,computers);
         fail.click();
