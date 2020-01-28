@@ -1,6 +1,6 @@
 package pl.allegro.pageObjects.utils;
 
-import org.apache.commons.io.FileUtils;
+import io.qameta.allure.Attachment;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
@@ -9,9 +9,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import pl.allegro.pageObjects.pages.AbstractPageObject;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.UUID;
 
 public class ScreenShotFailedTests extends AbstractPageObject implements MethodRule {
 
@@ -27,22 +24,16 @@ public class ScreenShotFailedTests extends AbstractPageObject implements MethodR
                 try {
                     statement.evaluate();
                 } catch (Throwable t) {
-                    captureScreenShot(frameworkMethod.getName());
+                    captureScreenShot();
                     throw t;
                 }
             }
 
-
-    public void captureScreenShot(String fileName) throws IOException {
-
-        File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-        fileName += UUID.randomUUID().toString();
-        File targetFile = new File(System.getProperty("user.dir") +"\\printscreens\\"+ fileName + ".png");
-        FileUtils.copyFile(scrFile, targetFile);
-
-    }
-
-};
+            @Attachment("Screenshot on failure")
+            public byte[] captureScreenShot() {
+                return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+            }
+        };
 
     }
 }
