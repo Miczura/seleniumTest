@@ -7,6 +7,7 @@ import io.qameta.allure.Description;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pl.allegro.pageObjects.pages.ExternalAndPortableDiscsPage;
 import pl.allegro.pageObjects.pages.MainPage;
 import pl.allegro.pageObjects.utils.ScreenShotFailedTests;
@@ -22,7 +23,11 @@ public class DiskFilteringAndSortingTest {
     @BeforeClass
     public static void setup(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920x1080");
+        driver = new ChromeDriver(options);
 
     }
 
