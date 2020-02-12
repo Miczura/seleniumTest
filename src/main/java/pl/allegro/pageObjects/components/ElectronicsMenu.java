@@ -27,10 +27,4 @@ public class ElectronicsMenu extends AbstractPageObject {
         computers.click();
         return new ComputersPage(getDriver());
     }
-    @Step("Try to navigate to computers page and fail on electronics page")
-    public ComputersPage selectComputersLinkAndFail(){
-        WaitWrapper.waitForElement(getDriver(),10,computers);
-        fail.click();
-        return new ComputersPage(getDriver());
-    }
 }
