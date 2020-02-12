@@ -25,11 +25,6 @@ public class DiskFilteringAndSortingTest {
         driver = new ChromeDriver();
 
     }
-//    @Before
-//    public void navigateToExternalAndPortableDiscs()  {
-//        //given
-//
-//    }
 
     @Test
     @Description("Navigate from allegro.pl to portable disc and memories page, set filters " +
@@ -49,22 +44,7 @@ public class DiskFilteringAndSortingTest {
 
     }
 
-    @Test
-    @Description("Navigate from allegro.pl to portable disc and memories page, with wrong " +
-            "locator and take screenshot for broken test")
-    public void thisOneWillBeBroken(){
-        navigateToExternalAndPortableDiscPageAndFailDuringThisOperation();
 
-    }
-
-
-    @Test
-    @Description("Navigate from allegro.pl to portable disc and memories page " +
-            "fail on dummy assertion and take a screenshot")
-    public void thisOneWillFail(){
-        navigateToExternalAndPortableDiscPage();
-        Assert.assertTrue(1>2);
-    }
 
     @AfterClass
     public static void teardown(){
@@ -82,15 +62,6 @@ public class DiskFilteringAndSortingTest {
                 .getPortableDiscsAndMemoriesMenu()
                 .selectExternalAndPortableDiscsLink();
     }
-    private void navigateToExternalAndPortableDiscPageAndFailDuringThisOperation(){
-        externalAndPortableDiscsPage= mainpage.navigateToMainPage().getMainCategoriesMenu()
-                .selectElectronicsLink()
-                .getElectronicsMenu()
-                .selectComputersLinkAndFail()
-                .getComputersMenu()
-                .selectPortableDiscAndMemoriesPage()
-                .getPortableDiscsAndMemoriesMenu()
-                .selectExternalAndPortableDiscsLink();
-    }
+
 
 }
