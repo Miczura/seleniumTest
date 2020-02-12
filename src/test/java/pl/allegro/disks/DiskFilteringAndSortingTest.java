@@ -7,7 +7,6 @@ import io.qameta.allure.Description;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pl.allegro.pageObjects.pages.ExternalAndPortableDiscsPage;
 import pl.allegro.pageObjects.pages.MainPage;
 import pl.allegro.pageObjects.utils.ScreenShotFailedTests;
@@ -23,11 +22,7 @@ public class DiskFilteringAndSortingTest {
     @BeforeClass
     public static void setup(){
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("–no-sandbox");
-        options.addArguments("–disable-dev-shm-usage");
-
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
 
     }
 
