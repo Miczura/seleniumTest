@@ -1,5 +1,6 @@
 package pl.allegro.pageObjects.components;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
         super(driver);
     }
 
+    @Step("Select filter for disc capacity from {0} to {1} Gb")
     public ExternalAndPortableDiscsMenu setupfilteringDiscCapacity(String minCapacity,String maxCapacity){
         WaitWrapper.waitForElement(getDriver(),5,fromCapacityFilter);
         fromCapacityFilter.clear();
@@ -38,13 +40,14 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
         return this;
     }
 
+    @Step("Select sorting method from most expensive descendant")
     public ExternalAndPortableDiscsMenu selectSortingMethod(){
         Select statusDropdown=new Select(select);
         statusDropdown.getOptions().get(2).click();
         return this;
 
     }
-
+    @Step("Get result list of prices")
     public List<Double> getListOfPrices() {
         getDriver().navigate().refresh();
         int count = 5;
@@ -72,6 +75,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
         }
 
     }
+    @Step("Check if prices are sorted")
     public void checkIfPricesAreSorted(List<Double> list){
         double element=Double.POSITIVE_INFINITY;
         for(Double e:list){

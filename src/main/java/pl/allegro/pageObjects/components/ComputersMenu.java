@@ -1,6 +1,7 @@
 package pl.allegro.pageObjects.components;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +18,7 @@ public class ComputersMenu extends AbstractPageObject {
     public ComputersMenu(WebDriver driver) {
         super(driver);
     }
-
+    @Step("Navigate to select portable discs and memories page")
     public PortableDiscsAndMemoriesPage selectPortableDiscAndMemoriesPage(){
         changeTab();
         WaitWrapper.waitForElement(getDriver(),10,portableDiscsAndMemoriesLink);
