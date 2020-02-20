@@ -12,12 +12,10 @@ public class ElectronicsMenu extends AbstractPageObject {
     //@FindBy(xpath = "//div[@data-box-name='category - Elektronika']/descendant::a[text()='Komputery']")
     //@FindBy(xpath = "//a[@title='Komputery stacjonarne']")
     //@FindBy(xpath="//div[@data-box-name='Komputery i tablety stara']/descendant::a[@title='Komputery stacjonarne'][2]")
-    @FindBy(xpath="//div[@data-box-name='category - Elektronika']/descendant::a[@title='Komputery']")
+    @FindBy(xpath="//div[@data-box-name='category - Elektronika']/descendant::a[@href='/kategoria/komputery']")
 
     private WebElement computers;
-    @FindBy(xpath="//div[@data-box-name='catgory - Elektronika']/descendant::a[@title='Komputery']")
 
-    private WebElement fail;
     public ElectronicsMenu(WebDriver driver) {
         super(driver);
     }
