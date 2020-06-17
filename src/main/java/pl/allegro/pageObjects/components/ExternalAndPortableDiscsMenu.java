@@ -19,7 +19,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     @FindBy(xpath = "//select[@data-value='m']")
     private WebElement select;
     //@FindBy(xpath = "//section[descendant::h2[text()='Oferty']]//span[@class='fee8042']")
-    @FindBy(xpath = "//section[descendant::h2[text()='Oferty']]/section/article/div/div[1]/div[2]/div[2]/div/div/span")
+    @FindBy(xpath = "//section[descendant::h2[text()='Oferty']]/section/article/div/div[2]/descendant::span[1]")
     private WebElement listOfProducts;
     @FindBy(xpath = "//div[@data-box-name='chipsAboveFilters']/descendant::div[text()='do 300 GB']")
     private WebElement filterVelue;
@@ -57,7 +57,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
             count--;
             try {
                 List<WebElement> listOfWebElements = listOfProducts.
-                        findElements(By.xpath("//section[descendant::h2[text()='Oferty']]/section/article/div/div[1]/div[2]/div[2]/div/div/span"));
+                        findElements(By.xpath("//section[descendant::h2[text()='Oferty']]/section/article/div/div[2]/descendant::span[1]"));
                 List<String> listOfStringsPrises = listOfWebElements.
                         stream().
                         map(webElement -> webElement.getText().replaceAll("zł", "").replaceAll(",", ".").trim()).
