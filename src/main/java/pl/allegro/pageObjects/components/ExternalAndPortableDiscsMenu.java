@@ -44,7 +44,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     @Step("Select sorting method from most expensive descendant")
     public ExternalAndPortableDiscsMenu selectSortingMethod(){
         Select statusDropdown=new Select(select);
-        statusDropdown.getOptions().get(2).click();
+        statusDropdown.selectByVisibleText("cena: od najwyższej");
         return this;
 
     }
@@ -57,12 +57,13 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
             count--;
             try {
                 List<WebElement> listOfWebElements = listOfProducts.
-                        findElements(By.xpath("//section[descendant::h2[text()='Oferty']]/section/article/div/div[2]/descendant::span[1]"));
+                        findElements(By.xpath("//section/descendant::h2[text()='Oferty']/following::article/div/div[2]/descendant::span[1]"));
                 List<String> listOfStringsPrises = listOfWebElements.
                         stream().
                         map(webElement -> webElement.getText().replaceAll("zł", "").replaceAll(",", ".").trim()).
                         collect(Collectors.toList());
                 return listOfStringsPrises.
+                        subList(0,35).
                         stream().
                         map(stringElement -> Double.parseDouble(stringElement.replaceAll(" ", ""))).
                         collect(Collectors.toList());
@@ -88,6 +89,5 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
         }
 
     }
-
 }
 
