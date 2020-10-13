@@ -19,7 +19,7 @@
         <allure.plugin.version>2.10.0</allure.plugin.version>
 
         <selenium.java.version>3.9.1</selenium.java.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <webdriver.manager.version>3.8.1</webdriver.manager.version>
         <assertj.core.version>3.9.0</assertj.core.version>
         <allureJunit4.version>2.13.1</allureJunit4.version>
