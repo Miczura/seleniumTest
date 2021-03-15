@@ -22,14 +22,14 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     @FindBy(xpath = "//section/descendant::h2[text()='Oferty']/following::article/div/div[2]/descendant::span[1]")
     private WebElement listOfProducts;
     @FindBy(xpath = "//div[@data-box-name='chipsAboveFilters']/descendant::div[text()='do 300 GB']")
-    private WebElement filterVelue;
+    private WebElement filterValue;
 
     public ExternalAndPortableDiscsMenu(WebDriver driver) {
         super(driver);
     }
 
     @Step("Select filter for disc capacity from {0} to {1} Gb")
-    public ExternalAndPortableDiscsMenu setupfilteringDiscCapacity(String minCapacity,String maxCapacity){
+    public ExternalAndPortableDiscsMenu setupFilteringDiscCapacity(String minCapacity, String maxCapacity){
         WaitWrapper.waitForElement(getDriver(),5,fromCapacityFilter);
         fromCapacityFilter.clear();
         fromCapacityFilter.sendKeys(minCapacity);
@@ -37,7 +37,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
 
         toCapacityFilter.sendKeys(maxCapacity);
         toCapacityFilter.click();
-        WaitWrapper.waitForElement(getDriver(),3,filterVelue);
+        WaitWrapper.waitForElement(getDriver(),3, filterValue);
         return this;
     }
 
@@ -58,11 +58,11 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
             try {
                 List<WebElement> listOfWebElements = listOfProducts.
                         findElements(By.xpath("//section/descendant::h2[text()='Oferty']/following::article/div/div[2]/descendant::span[1]"));
-                List<String> listOfStringsPrises = listOfWebElements.
+                List<String> listOfStringsPrices = listOfWebElements.
                         stream().
                         map(webElement -> webElement.getText().replaceAll("zł", "").replaceAll(",", ".").trim()).
                         collect(Collectors.toList());
-                return listOfStringsPrises.
+                return listOfStringsPrices.
                         subList(0,35).
                         stream().
                         map(stringElement -> Double.parseDouble(stringElement.replaceAll(" ", ""))).
