@@ -9,7 +9,8 @@ import pl.allegro.pageObjects.pages.ExternalAndPortableDiscsPage;
 import pl.allegro.pageObjects.utils.WaitWrapper;
 
 public class PortableDiscsAndMemoriesMenu extends AbstractPageObject {
-    @FindBy(xpath = "//div[@data-box-name='categories container']/descendant::a[text()=' Dyski zewnętrzne i przenośne ']")
+    //@FindBy(xpath = "//div[@data-box-name='categories container']/descendant::a[text()=' Dyski zewnętrzne i przenośne ']")
+    @FindBy(css = "[data-role='Categories'] a[href*='dyski-zewnetrzne-i-przenosne']")
     private WebElement externalAndPortableDiscs;
 
     public PortableDiscsAndMemoriesMenu(WebDriver driver) {

@@ -12,7 +12,8 @@ public class ElectronicsMenu extends AbstractPageObject {
     //@FindBy(xpath = "//div[@data-box-name='category - Elektronika']/descendant::a[text()='Komputery']")
     //@FindBy(xpath = "//a[@title='Komputery stacjonarne']")
     //@FindBy(xpath="//div[@data-box-name='Komputery i tablety stara']/descendant::a[@title='Komputery stacjonarne'][2]")
-    @FindBy(xpath="//div[@data-box-name='category - Elektronika']/descendant::a[@href='/kategoria/komputery']")
+    //@FindBy(xpath="//div[@data-box-name='category - Elektronika']/descendant::a[@href='/kategoria/komputery']")
+    @FindBy(css="[data-box-name='category - Elektronika'] a[href*='komputery']")
 
     private WebElement computers;
 

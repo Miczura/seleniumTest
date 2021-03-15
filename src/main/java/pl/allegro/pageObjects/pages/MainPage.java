@@ -11,9 +11,11 @@ import pl.allegro.pageObjects.utils.Url;
 public class MainPage extends AbstractPageObject {
     private MainCategoriesMenu mainCategoriesMenu;
 
-    @FindBy(xpath = "//div[@id='dialog-content']")
+    //@FindBy(xpath = "//div[@id='dialog-content']")
+    @FindBy(css = "div[role='alertdialog']")
     WebElement consent;
-    @FindBy(xpath = "//button[text()='przejdź dalej']")
+    //@FindBy(xpath = "//button[text()='przejdź dalej']")
+    @FindBy(css = "[data-role='accept-consent']")
     WebElement button;
 
     public MainPage(WebDriver driver){
