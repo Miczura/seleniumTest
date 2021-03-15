@@ -23,7 +23,7 @@ public class MainPage extends AbstractPageObject {
     @Step("Navigate to allegro.pl")
     public MainPage navigateToMainPage(){
         getDriver().manage().window().maximize();
-        getDriver().get(Url.allegroAddress);
+        getDriver().get(Url.ALLEGRO_ADDRESS);
         CookieWrapper.setupConsentManual(getDriver(),consent,button);
         return this;
     }
