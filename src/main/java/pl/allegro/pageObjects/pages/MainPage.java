@@ -11,9 +11,11 @@ import pl.allegro.pageObjects.utils.Url;
 public class MainPage extends AbstractPageObject {
     private MainCategoriesMenu mainCategoriesMenu;
 
-    @FindBy(xpath = "//div[@id='dialog-content']")
+    //@FindBy(xpath = "//div[@id='dialog-content']")
+    @FindBy(css = "div[role='alertdialog']")
     WebElement consent;
-    @FindBy(xpath = "//button[text()='przejdź dalej']")
+    //@FindBy(xpath = "//button[text()='przejdź dalej']")
+    @FindBy(css = "[data-role='accept-consent']")
     WebElement button;
 
     public MainPage(WebDriver driver){
@@ -23,7 +25,7 @@ public class MainPage extends AbstractPageObject {
     @Step("Navigate to allegro.pl")
     public MainPage navigateToMainPage(){
         getDriver().manage().window().maximize();
-        getDriver().get(Url.allegroAddress);
+        getDriver().get(Url.ALLEGRO_ADDRESS);
         CookieWrapper.setupConsentManual(getDriver(),consent,button);
         return this;
     }

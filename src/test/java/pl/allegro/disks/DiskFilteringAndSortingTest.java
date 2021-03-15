@@ -35,7 +35,7 @@ public class DiskFilteringAndSortingTest {
        navigateToExternalAndPortableDiscPage();
         //when
        externalAndPortableDiscsPage.getExternalAndPortableDiscsMenu()
-              .setupfilteringDiscCapacity("200","300")
+              .setupFilteringDiscCapacity("200","300")
               .selectSortingMethod();
         //then checking if prices are sorted descending
        externalAndPortableDiscsPage.getExternalAndPortableDiscsMenu()
