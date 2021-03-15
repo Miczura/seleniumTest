@@ -31,6 +31,7 @@ public class ExternalAndPortableDiscsMenu extends AbstractPageObject {
     @Step("Select filter for disc capacity from {0} to {1} Gb")
     public ExternalAndPortableDiscsMenu setupFilteringDiscCapacity(String minCapacity, String maxCapacity){
         WaitWrapper.waitForElement(getDriver(),5,fromCapacityFilter);
+        fromCapacityFilter.click(); // without that this field may not be filled out
         fromCapacityFilter.clear();
         fromCapacityFilter.sendKeys(minCapacity);
         toCapacityFilter.clear();
